@@ -104,17 +104,10 @@ public class KafkaProducerStress {
     // Método para crear y configurar el productor de Kafka
     private Producer<String, String> createProducer() {
         Properties properties = new Properties();
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "cluster-ib-kafka-route-bootstrap-devkafka.apps.dev.interbanking.com.ar:443");
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "url kafka");
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-
-        // Configuración para SSL
-        properties.put("security.protocol", "SSL");
-        properties.put("ssl.key.password", "Interbanking");
-        properties.put("ssl.keystore.location", "c:/app/certs/keystoreKafka.jks");
-        properties.put("ssl.keystore.password", "Interbanking");
-        properties.put("ssl.truststore.location", "c:/app/certs/keystoreKafka.jks");
-        properties.put("ssl.truststore.password", "Interbanking");
+        
 
         return new KafkaProducer<>(properties);
     }
